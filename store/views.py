@@ -9,44 +9,36 @@ from django.db.models import Q
 
 # Create your views here.
 
-def store(request):
-    products = Product.objects.all().filter(is_available=True)
-    product_count = products.count()
+
+
+def store(request, category_slug=None):
+    categories = None
+    products   = None
+
+    if category_slug != None:
+        categories = get_object_or_404(Category, slug=category_slug)
+        products = Product.objects.filter(category=categories, is_available=True)
+
+#         paginator = Paginator(products, 6)
+#         page = request.GET.get('page')
+#         page_products = paginator.get_page(page)
+
+        product_count = products.count()
+    else:
+        products = Product.objects.all().filter(is_available=True).order_by('id')
+
+#         paginator = Paginator(products, 6)
+#         page = request.GET.get('page')
+#         page_products = paginator.get_page(page)
+
+        product_count = products.count()
 
     context = {
         'products':products,
         'product_count':product_count,
     }
-    return render(request, "store/store.html", context)
 
-# def store(request, category_slug=None):
-#     categories = None
-#     products   = None
-
-#     if category_slug != None:
-#         categories = get_object_or_404(Category, slug=category_slug)
-#         products = Product.objects.filter(category=categories, is_available=True)
-
-#         paginator = Paginator(products, 6)
-#         page = request.GET.get('page')
-#         page_products = paginator.get_page(page)
-
-#         product_count = products.count()
-#     else:
-#         products = Product.objects.all().filter(is_available=True).order_by('id')
-
-#         paginator = Paginator(products, 6)
-#         page = request.GET.get('page')
-#         page_products = paginator.get_page(page)
-
-#         product_count = products.count()
-
-#     context = {
-#         'products':page_products,
-#         'product_count':product_count,
-#     }
-
-#     return render(request, 'store/store.html', context)
+    return render(request, 'store/store.html', context)
 
 
 # #https://chatgpt.com/s/t_697c6cddce2481918ee47e95c9a123c0
