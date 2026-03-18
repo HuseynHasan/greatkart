@@ -32,10 +32,11 @@ def store(request, category_slug=None):
 def product_detail(request, category_slug, product_slug):
 
     single_product = get_object_or_404(
-        Product, 
-        category_slug=category_slug, 
-        slug=product_slug
-        )
+        Product.objects.select_related('category'),
+        category__slug=category_slug,
+        slug=product_slug,
+        is_available=True
+    )
 
         # in_cart = CartItem.objects.filter(cart__cart_id=_cart_id(request), product=single_product).exists()
 
