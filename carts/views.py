@@ -16,6 +16,12 @@ def _cart_id(request):
 
 # Bizə product -un idsi lazimdir.
 def add_cart(request, product_id):
+
+    color = request.GET['color']
+    size = request.GET['size']
+    # https://www.youtube.com/watch?v=Egg_k9kY54E&list=PLFNQLcwO1GaZg65xZ1PrlOY5mP4bnedaT&index=47
+
+
     # burda productun idsi ile hemin product-u cagirdig. deyekki "blue"
     product = Product.objects.get(id=product_id)
 
