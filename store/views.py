@@ -56,14 +56,14 @@ def product_detail(request, category_slug, product_slug):
     return render(request, 'store/product-detail.html', context)
 
 
-# def search(requset):
-#     if 'keyword' in requset.GET:
-#         keyword = requset.GET['keyword']
-#         if keyword:
-#             products = Product.objects.order_by('-created_date').filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
-#             product_count = products.count()
-#     context = {
-#         'products':products,
-#         'product_count':product_count,
-#         }
-#     return render(requset, 'store/store.html', context)
+def search(requset):
+    if 'keyword' in requset.GET:
+        keyword = requset.GET['keyword']
+        if keyword:
+            products = Product.objects.order_by('-created_date').filter(Q(description__icontains=keyword) | Q(product_name__icontains=keyword))
+            product_count = products.count()
+    context = {
+        'products':products,
+        'product_count':product_count,
+        }
+    return render(requset, 'store/store.html', context)
