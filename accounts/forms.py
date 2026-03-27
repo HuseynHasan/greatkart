@@ -2,7 +2,10 @@ from django import forms
 from .models import Account
 
 # qrDc@2tFNC5GrGF , johndoe80@gmail.com
-# ArDc@2tFNC5GrGF , johndoe80@gmail.com
+# ArDc@2tFNC5GrGF , donladtrump79@gmail.com
+# BrDc@2tFNC5GrGF , jonidom@gmail.com
+# crDc@2tFNC5GrGF , conitravolta@gmail.com
+# ErDc@2tFNC5GrGF , contravolta@gmail.com
 
 
 class RegistrationForm(forms.ModelForm):
