@@ -6,6 +6,8 @@ from .models import Account
 # BrDc@2tFNC5GrGF , jonidom@gmail.com
 # crDc@2tFNC5GrGF , conitravolta@gmail.com
 # ErDc@2tFNC5GrGF , contravolta@gmail.com
+# orDc@2tFNC5GrGF , brendemlak@gmail.com
+# krDc@2tFNC5GrGF , jby@gmail.com
 
 
 class RegistrationForm(forms.ModelForm):

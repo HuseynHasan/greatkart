@@ -138,3 +138,16 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: "Danger",
 }
+
+
+
+# https://chatgpt.com/s/t_69d4a923c710819187f2c8f5c97e3a29
+# SMTP configuration
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'huseynhasan80@gmail.com'
+# EMAIL_HOST_PASSWORD = '1234'
+# EMAIL_USE_TLS = True
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
